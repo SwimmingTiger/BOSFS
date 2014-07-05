@@ -717,7 +717,7 @@ class BCSWrapper {
 		}
 		
 		//判断是否为目录
-		if (!self::$bcs->is_object_exist(self::BUCKET, $this->path.'/.meta')) {
+		if ($this->path!='/' && !self::$bcs->is_object_exist(self::BUCKET, $this->path.'/.meta')) {
 			$this->isdir = false;
 			return false;
 		}
@@ -880,7 +880,16 @@ class BCSWrapper {
 	* 因dirname有中文BUG，因此重新实现
 	*/
 	protected static function dirname($path) {
-		return preg_replace('#/[^/]*$#', '', $path);
+		$path = preg_replace('#/+$#', '', $path);
+		$dir = preg_replace('#/[^/]*$#', '', $path);
+		
+		if ($path[0] == '/' && $dir == '') {
+			$dir = '/';
+		}
+		
+		//self::log("DIRNAME: '$path' > '$dir'");
+		
+		return $dir;
 	}
 	
 	/**
@@ -889,7 +898,12 @@ class BCSWrapper {
 	* 因basename有中文BUG，因此重新实现
 	*/
 	protected static function basename($path) {
-		return preg_replace('#^.*/#', '', $path);
+		$path = preg_replace('#/+$#', '', $path);
+		$base = preg_replace('#^.*/#', '', $path);
+		
+		//self::log("BASENAME: '$path' > '$base'");
+		
+		return $base;
 	}
 	
 	/**
