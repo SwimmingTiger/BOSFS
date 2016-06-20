@@ -41,11 +41,17 @@ BOSWrapper.class.php中默认注册的流协议为 bosfs://　，您可直接使
 1. 将本项目文件复制到已有的php程序中的适当位置。
 2. 在BOS中创建Bucket，配置 conf.inc.php。
 3. 在原程序的主配置文件中：
-```require_once '本项目路径/BOSWrapper.class.php';```
+```php
+require_once '本项目路径/BOSWrapper.class.php';
+```
 4. 调整原程序的配置，将文件上传目录改为：
-```bosfs://任意目录```
+```php
+bosfs://任意目录
+```
 5. 调整原程序的配置，将文件浏览URL改为（Bucket读写权限须设置为公共读）：
-```http://你的Bucket.地区.bcebos.com/第四部指定的目录```
+```php
+http://你的Bucket.地区.bcebos.com/第四部指定的目录
+```
 6. 移植轻松完成。
 
 ### Mediawiki插件
@@ -56,17 +62,17 @@ BOSWrapper.class.php中默认注册的流协议为 bosfs://　，您可直接使
 2. 在 LocalSettings.php 中加入如下语句：
       require_once "$IP/extensions/BOSFS/BOSFS.php";      
 3. 去BOS创建Bucket，然后修改文件上传设置：
-[code]
+```php
 $wgEnableUploads = true;
 $wgUploadDirectory = 'bosfs://upload';
 $wgUploadPath = 'http://你的Bucket.地区.bcebos.com/upload';
-[/code]
+```
 4. 正确配置插件目录中的 conf.inc.php 后即可使用文件上传。
 
 ### 例子
 
 以下是使用本项目读写BOS文件的例子：
-[code]
+```php
 <?php
 //提示：使用前请先配置conf.inc.php
 //加载流包装器
@@ -89,7 +95,7 @@ unlink('bosfs://test/b.txt');
 unlink('bosfs://test/a.txt');
 rmdir('bosfs://test');
 ?>
-[/code]
+```
 
 ### 已知的问题
 
