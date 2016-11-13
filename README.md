@@ -1,24 +1,6 @@
-### 作者
+## 百度开放云对象存储文件系统
 
-老虎会游泳 <hu60.cn@gmail.com>
-
-### 授权
-
-#### 放弃著作权声明
-
-自本声明发布起，本人自愿放弃该项目的一切著作权，将其置入公有领域。注意：该项目中仅本人所有的部分置入公有领域，其他部分（如BCE SDK）的著作权保护状态维持不变。
-
-置入公有领域的文件列表：
-　　
-* BOSFS.php //BOSFS的Mediawiki插件
-
-* BOSWrapper.class.php //BcsFS的流包装器
-
-* README.md //本说明文件
-
-### 版本库
-
-该项目发布在Github上，您可通过以下网址获取更新或提交贡献：http://github.com/SwimmingTiger/BOSFS
+通过php流包装器像操作本地文件系统一样操作百度开放云(BCE)的BOS对象存储。
 
 ### 简介
 
@@ -108,6 +90,28 @@ rmdir('bosfs://test');
 ### 技术细节
 
 BOS本身并无目录中，以/结尾的文件会被视为目录。
+
+### 作者
+
+老虎会游泳 <hu60.cn@gmail.com>
+
+### 授权
+
+#### 放弃著作权声明
+
+自本声明发布起，本人自愿放弃该项目的一切著作权，将其置入公有领域。注意：该项目中仅本人所有的部分置入公有领域，其他部分（如BCE SDK）的著作权保护状态维持不变。
+
+置入公有领域的文件列表：
+　　
+* BOSFS.php //BOSFS的Mediawiki插件
+
+* BOSWrapper.class.php //BcsFS的流包装器
+
+* README.md //本说明文件
+
+### 版本库
+
+该项目发布在Github上，您可通过以下网址获取更新或提交贡献：http://github.com/SwimmingTiger/BOSFS
 
 ### 时间
 
